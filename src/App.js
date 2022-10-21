@@ -1,10 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { getAll, update } from "./BooksAPI";
-import CurrentlyReading from "./CurrentlyReading";
-import WantToRead from "./WantToRead";
-import Read from "./Read";
 import { Link } from "react-router-dom";
+import BookShelf from "./BookShelf";
 
 function App() {
   const [data, setData] = useState();
@@ -39,19 +37,31 @@ function App() {
               <h2 className="bookshelf-title">Currently Reading</h2>
 
               <div className="bookshelf-books">
-                <CurrentlyReading data={data} handleSelect={handleSelect} />
+                <BookShelf
+                  data={data}
+                  type="currentlyReading"
+                  handleSelect={handleSelect}
+                />
               </div>
             </div>
             <div className="bookshelf">
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
-                <WantToRead data={data} handleSelect={handleSelect} />
+                <BookShelf
+                  data={data}
+                  type="wantToRead"
+                  handleSelect={handleSelect}
+                />
               </div>
             </div>
             <div className="bookshelf">
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
-                <Read data={data} handleSelect={handleSelect} />
+                <BookShelf
+                  data={data}
+                  type="read"
+                  handleSelect={handleSelect}
+                />
               </div>
             </div>
           </div>

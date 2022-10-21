@@ -62,7 +62,7 @@ const Search = () => {
             searchResult.length > 0 &&
             searchResult
               .filter((result) => {
-                return result.imageLinks != null;
+                return result.imageLinks != null && result.authors != null;
               })
               .map((data, index) => (
                 <div key={index}>
@@ -84,7 +84,7 @@ const Search = () => {
                               handleSelect(data.id, e.target.value);
                             }}
                           >
-                            <option value="none" disabled>
+                            <option value="disabled" disabled>
                               Move to...
                             </option>
                             <option value="currentlyReading">
@@ -98,10 +98,9 @@ const Search = () => {
                       </div>
                       <div className="book-title">{data.title}</div>
                       <div className="book-authors">
-                        {data.authors &&
-                          data.authors.map((author, index) => (
-                            <div key={index}>{author}</div>
-                          ))}
+                        {data.authors.map((author, index) => (
+                          <div key={index}>{author}</div>
+                        ))}
                       </div>
                     </div>
                   </li>

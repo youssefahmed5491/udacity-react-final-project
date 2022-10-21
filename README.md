@@ -1,7 +1,7 @@
 udacity project : book tracking app
 
-first command used to create react project npx create-react-app final-project
-second command to install react routering npm install react-router-dom --save
+Run npm install in the project root directory to install dependencies
+Run npm start to launch the project
 
 the projcet follows the rubrics provided at https://review.udacity.com/#!/rubrics/3624/view
 
@@ -9,4 +9,7 @@ where each shelf is in a separet commponent & the search functionality behaves c
 
 all the functions provided in BookAPI were used
 
-- i did one of the bonuses which is when clicking on a book image in the home page it routes to /book where it provides additional info of the book
+This is a book tracking app when loaded you are routed to the main page where you could have 3 shelfs which are Currently Reading , Want to Read , Read
+Each book could be moved from one shelf to another or removed from all shelfs by selecting none
+You can click on any book to further display more info about it
+If clicked on the plus icon on the buttom right of the page a search page is displayed where you could search in the database for new books you might want to read and if so you could add them to any of you shelfs

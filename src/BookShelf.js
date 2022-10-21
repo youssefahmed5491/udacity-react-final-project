@@ -1,22 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const WantToRead = ({ data, handleSelect }) => {
-  const drop = (ev) => {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  };
+const BookShelf = ({ data, type, handleSelect }) => {
   return (
     <ol className="books-grid">
       {data &&
         data.map((data, index) => (
           <div key={index}>
-            {data.shelf == "wantToRead" && (
-              <li>
+            {data.shelf == type && (
+              <li draggable>
                 <div className="book">
                   <div className="book-top">
-                    {/* {console.log(data.imageLinks.smallThumbnail,'oo')} */}
                     <Link
                       to={`/${data.id}`}
                       style={{ textDecoration: "none" }}
@@ -44,7 +38,7 @@ const WantToRead = ({ data, handleSelect }) => {
                         <option value="currentlyReading">
                           Currently Reading
                         </option>
-                        <option value="wantToRead"># Want to Read</option>
+                        <option value="wantToRead"> Want to Read</option>
                         <option value="read">Read</option>
                         <option value="none">None</option>
                       </select>
@@ -66,4 +60,4 @@ const WantToRead = ({ data, handleSelect }) => {
   );
 };
 
-export default WantToRead;
+export default BookShelf;
